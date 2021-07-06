@@ -37,8 +37,12 @@ services:
   mongo_db:
     image: mongo:latest
     restart: unless-stopped
+    environment:    # 환경변수를 정의합니다.
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: vitaminc
     volumes:
        - ./mongo/db:/data/db
     ports:
       - "27017:27017"
+    
   
