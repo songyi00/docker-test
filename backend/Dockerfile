@@ -1,6 +1,7 @@
 FROM ubuntu:20.04
 
 #작업디렉토리 
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 RUN apt-get update -y && \
@@ -15,7 +16,6 @@ ENV FLASK_RUN_HOST=0.0.0.0
 COPY /backend/requirements.txt /usr/src/app
 #-r 옵션은 파일(requirement.txt)에 적혀있는 라이브러리를 설치하라는 의미
 RUN pip3 install -r requirements.txt 
-RUN pip3 install flask-restx
 
 EXPOSE 5000
 
